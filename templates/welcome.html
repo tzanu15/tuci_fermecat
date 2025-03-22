@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="carousel-container">
+    <div id="welcomeCarousel" class="carousel slide" data-bs-interval="20000" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for i in "1234" %}
+    <div class="carousel-item {% if forloop.first %}active{% endif %}"
+         style="background-image: url('{% static 'images/carousel/slide' %}{{ i }}.jpg');">
+                <div class="overlay">
+                    <h1>Bine ai venit la Tuciul Fermecat</h1>
+                    <p>Bucură-te de mâncare alături de prieteni. Alege, gătește și împărtășește mesele voastre.</p>
+                    <a href="{% url 'login' %}" class="btn btn-primary btn-lg btn-get-started">Începe acum</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var carousel = new bootstrap.Carousel(document.getElementById("welcomeCarousel"), {
+            interval: 20000, // Se schimbă automat la 20 secunde
+            pause: false
+        });
+
+        // La click pe imagine, trece la următorul slide
+        document.getElementById("welcomeCarousel").addEventListener("click", function() {
+            carousel.next();
+        });
+    });
+</script>
+
+{% endblock %}

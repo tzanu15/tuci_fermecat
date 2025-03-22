@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container profile-container">
+    <div class="profile-card">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                {% if user.picture_profile %}
+                    <img src="{{ user.picture_profile.url }}" alt="Poza de profil a lui {{ user.username }}">
+                {% else %}
+                    <img src="{% static 'images/default-profile.png' %}" alt="Poza de profil implicită">
+                {% endif %}
+            </div>
+            <h2 class="profile-username">{{ user.username }}</h2>
+        </div>
+        <div class="profile-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.errors }}
+                    </div>
+                {% endif %}
+                <div class="form-group">
+                    <label for="username">Nume de utilizator</label>
+                    {{ form.username }}
+                </div>
+                <div class="form-group">
+                    <label for="email">Adresă de email</label>
+                    {{ form.email }}
+                </div>
+                <div class="form-group">
+                    <label for="first_name">Prenume</label>
+                    {{ form.first_name }}
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Nume</label>
+                    {{ form.last_name }}
+                </div>
+                <div class="form-group">
+                    <label for="birth_date">Data Nașterii</label>
+                    {{ form.birth_date }}
+                </div>
+                 <div class="form-group">
+                    <label for="about_me">Despre mine</label>
+                    {{ form.about_me }}
+                </div>
+                 <div class="form-group">
+                    <label for="picture_profile">Poza de profil</label>
+                    {{ form.picture_profile }}
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-profile">Actualizează Profilul</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

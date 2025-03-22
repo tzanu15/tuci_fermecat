@@ -1,0 +1,55 @@
+/* Stiluri generale */
+body {
+    background-color: #f8f9fa; /* Un fundal deschis */
+}
+
+.login-card {
+    margin-top: 50px;
+    border: none;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1); /* O umbră subtilă */
+    border-radius: 10px;
+}
+
+.card-title {
+    color: #343a40; /* Un titlu închis */
+}
+
+.form-label {
+    color: #6c757d; /* Etichete mai deschise */
+}
+
+.form-control {
+    border-radius: 5px;
+}
+
+.form-control:focus {
+    border-color: #007bff; /* Culoare la focus */
+    box-shadow: none;
+}
+
+.btn-login {
+    background-color: #28a745; /* Un verde închis (poți ajusta pentru tema ta) */
+    color: white;
+    border-radius: 5px;
+}
+
+.btn-login:hover {
+    background-color: #218838; /* O nuanță mai închisă la hover */
+}
+
+/* Stiluri specifice temei "Tuciul Fermecat" (Exemple) */
+/* Poți adăuga texturi de lemn, culori calde, etc. */
+.login-card {
+    background-color: #f0e68c; /* Exemplu: un galben pal */
+}
+
+.btn-login {
+    background-color: #a0522d; /* Exemplu: un maro */
+}
+
+/* Design responsiv */
+@media (max-width: 768px) {
+    .login-card {
+        margin-top: 20px;
+    }
+}
