@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1>Dish List</h1>
+
+    <div class="row">
+        {% for dish in dishes %}
+        <div class="col-md-4 mb-4 animate__animated animate__fadeIn">
+            <div class="card dish-card">
+                <img src="{{ dish.image.url }}" class="card-img-top" alt="{{ dish.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ dish.name }}</h5>
+                    <p class="card-text">{{ dish.description }}</p>
+                    <div class="vote-actions">
+                        <button class="btn-vote" data-dish-id="{{ dish.id }}">Votează</button>
+                        <div class="vote-count" data-dish-id="{{ dish.id }}">Voturi: 0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="{% static 'js/dish_list.js' %}"></script>
+
+{% endblock %}
+
+{% block page_styles %}
+    <link rel="stylesheet" href="{% static 'css/dish_list.css' %}">
+{% endblock %}

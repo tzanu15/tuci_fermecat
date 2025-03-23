@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1>Winning Dish</h1>
+    {% if winner %}
+        <div class="card">
+            {% if winner.image %}
+                <img src="{{ winner.image.url }}" class="card-img-top" alt="{{ winner.name }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ winner.name }}</h5>
+                <p class="card-text">{{ winner.description }}</p>
+                <p class="card-text">Votes: {{ winner.vote_count }}</p>
+            </div>
+        </div>
+    {% else %}
+        <p>No winner yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

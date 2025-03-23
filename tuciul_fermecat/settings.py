@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'meniu',
     'users',
+    'home',
 ]
 AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = '/'
@@ -88,7 +89,7 @@ WSGI_APPLICATION = 'tuciul_fermecat.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tuci_nou',  # Numele bazei de date
+        'NAME': 'tuciul_fermecat_nou',  # Numele bazei de date
 		'USER': 'tuci',  # Utilizatorul bazei de date
 		'PASSWORD': 'parola_noua',  # Parola bazei de date
         'HOST': 'localhost',  # sau adresa serverului PostgreSQL

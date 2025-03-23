@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1>Add Dish</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                {{ form.errors }}
+            </div>
+        {% endif %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            {{ form.name }}
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            {{ form.description }}
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            {{ form.image }}
+        </div>
+        <button type="submit" class="btn btn-primary">Add Dish</button>
+    </form>
+</div>
+{% endblock %}

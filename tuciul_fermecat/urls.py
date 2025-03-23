@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from meniu import views
+from meniu import views as meniu_views
+from users import views as users_views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('meniu/', include('meniu.urls')),
-    path('', views.welcome, name='welcome'),  # Pagina de bun venit
+    path('', include('home.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
